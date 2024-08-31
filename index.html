@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>When the</title>
+</head>
+<style>
+
+    @font-face {
+        font-family: NerkoOne;
+        src: url(NerkoOne-Regular.ttf);
+    }
+    
+    body{
+        background-color: #282b30;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0px;
+        color: #ffffff;
+    }
+    #counter{
+        margin: auto;
+        text-align: center;
+        font-size: 10vw;
+        font-family: NerkoOne;
+    }
+</style>
+<body>
+    <div id="counter">00:00:00</div>
+</body>
+<script>
+    var countDownDate = new Date("2024.09.02 9:00")
+    //console.log(countDownDate)
+    var counterBox = document.getElementById("counter");
+    var x = setInterval(() => {
+        
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
+
+        var hours = Math.floor((distance / (1000 * 60 * 60)));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        console.log(hours)
+        counterBox.innerText = `${hours}:${minutes}:${seconds}`
+
+
+    }, 1000);
+</script>
+</html>
